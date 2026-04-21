@@ -1,0 +1,607 @@
+:root {
+    /* Tema Warna Soft Dark Aesthetic */
+    --bg-dark: #101016;
+    --bg-soft: #1e1e28;
+    --text-color: #ededed;
+    --accent: #ffb7b2;
+    /* Soft pastel pink */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background-color: var(--accent);
+    color: var(--bg-dark);
+}
+
+/* Background Soft Gradient */
+.sections-container {
+    /* Memberikan efek cahaya radial halus di tengah */
+    background: radial-gradient(circle at 50% 50%, var(--bg-soft) 0%, var(--bg-dark) 100%);
+}
+
+.slide-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.content {
+    z-index: 2;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Tipografi Halus */
+p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.message-text {
+    font-size: 1.25rem;
+}
+
+#typing-text {
+    min-height: 80px;
+    /* Mencegah layout meloncat saat efek typing berjalan */
+}
+
+/* Background Bintang Animasi */
+.star-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: twinkle linear infinite;
+}
+
+@keyframes twinkle {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.1;
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1.3);
+        box-shadow: 0 0 5px white;
+    }
+
+    100% {
+        transform: translateY(-30px) scale(1);
+        opacity: 0.1;
+    }
+}
+
+/* Indikator Scroll di Halaman Pertama */
+.scroll-indicator {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.6;
+    animation: floatDown 2.5s infinite ease-in-out;
+    z-index: 2;
+}
+
+.scroll-indicator span {
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: var(--accent);
+}
+
+.arrow {
+    width: 12px;
+    height: 12px;
+    border-right: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
+    transform: rotate(45deg);
+}
+
+@keyframes floatDown {
+    0% {
+        transform: translate(-50%, 0);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: translate(-50%, 15px);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(-50%, 0);
+        opacity: 0.3;
+    }
+}
+
+/* Tombol Music */
+.music-btn {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--accent);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+}
+
+.music-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.music-btn.playing {
+    opacity: 1;
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 183, 178, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 12px rgba(255, 183, 178, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 183, 178, 0);
+    }
+}
+
+/* Swiper / Slider Foto */
+.swiper {
+    width: 100%;
+    padding-bottom: 50px !important;
+    /* Ruang untuk titik pagination */
+}
+
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.4;
+    transition: opacity 0.6s ease;
+    width: 250px;
+}
+
+.swiper-slide-active {
+    opacity: 1;
+}
+
+.img-container {
+    width: 250px;
+    height: 350px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* Efek Overlay Halus pada Gambar */
+.img-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.6) 100%);
+    pointer-events: none;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.swiper-slide-active .img-container:hover img {
+    transform: scale(1.08);
+    /* Zoom pelan saat di-hover */
+}
+
+.caption {
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 0.5s ease 0.3s;
+    text-align: center;
+}
+
+.swiper-slide-active .caption {
+    opacity: 0.9;
+}
+
+.swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--accent) !important;
+}
+
+/* Efek Klik Sparkle/Hati */
+.sparkle-effect {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    font-size: 15px;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    animation: sparkleAnim 1s ease-out forwards;
+}
+
+@keyframes sparkleAnim {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--x-move)), calc(-50% + var(--y-move))) scale(1.5) rotate(15deg);
+    }
+}
+
+/* Responsif Layar Besar (Laptop) */
+@media (min-width: 768px) {
+    p {
+        font-size: 1.4rem;
+    }
+
+    .message-text {
+        font-size: 1.6rem;
+    }
+
+    .img-container {
+        width: 300px;
+        height: 420px;
+    }
+
+    .swiper-slide {
+        width: 300px;
+    }
+
+    .caption {
+        font-size: 1.05rem;
+    }
+}
+
+/* Styling Section 3 (Cute Elements) */
+.cute-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.floating-item {
+    position: absolute;
+    bottom: -50px;
+    font-size: 2rem;
+    opacity: 0.6;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.cute-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 3;
+    position: relative;
+}
+
+.cute-bear {
+    position: center;
+    width: 120px;
+    height: 150x;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--accent);
+    box-shadow: 0 10px 30px rgba(255, 183, 178, 0.4);
+    animation: bounceGentle 3s ease-in-out infinite;
+    background-color: var(--bg-soft);
+}
+
+@keyframes bounceGentle {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.msg-bubble {
+    background: rgba(255, 183, 178, 0.15);
+    border: 2px dashed var(--accent);
+    padding: 30px;
+    border-radius: 30px;
+    position: relative;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.msg-bubble::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 15px 15px 15px;
+    border-style: solid;
+    border-color: transparent transparent var(--accent) transparent;
+}
+
+/* Efek Jejak Mouse Lucu */
+.trail-effect {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    animation: fadeOutSmooth 0.8s ease-out forwards;
+}
+
+@keyframes fadeOutSmooth {
+    0% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -100%) scale(0.5);
+    }
+}
+
+/* Floating Elements secara Random */
+.float-random-effect {
+    position: fixed;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.5;
+    animation: randomFloatUp linear forwards;
+}
+
+@keyframes randomFloatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.5;
+    }
+
+    85% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(-120vh) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+/* Spesial Section 3 (Fish It Theme) */
+.fish-it-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    z-index: 3;
+    position: relative;
+    width: 100%;
+}
+
+.fish-it-img {
+    width: 100%;
+    max-width: 400px; /* Lebar foto agak besar sesuai request */
+    height: auto;
+    border-radius: 16px;
+    border: 5px solid #4DB8FF; /* Biru laut */
+    box-shadow: 0 15px 40px rgba(77, 184, 255, 0.3);
+    animation: floatGentle 4s ease-in-out infinite;
+}
+
+.fish-it-bubble {
+    background: rgba(14, 52, 82, 0.6); /* Transparan biru laut tua agak gelap */
+    border: 2px solid #4DB8FF;
+    padding: 30px;
+    border-radius: 20px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    width: 90%;
+    max-width: 500px;
+}
+
+.fish-it-bubble p {
+    color: #E2F3FF; /* Teks agak kebiruan cerah biar nyambung tema laut */
+}
+
+.fish-it-bubble::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 15px 15px 15px;
+    border-color: transparent transparent #4DB8FF transparent;
+}
+
+/* Tombol Musik Ocean Theme */
+.music-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+    background: rgba(14, 52, 82, 0.8);
+    backdrop-filter: blur(10px);
+    border: 2px solid #4DB8FF;
+    color: #E2F3FF;
+    padding: 12px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(77, 184, 255, 0.4);
+}
+
+.music-btn:hover {
+    transform: scale(1.05);
+    background: rgba(14, 52, 82, 1);
+    box-shadow: 0 0 25px rgba(77, 184, 255, 0.6);
+}
+
+.play-require {
+    animation: bounceAttention 2s infinite;
+    border-color: #ffb7b2;
+    box-shadow: 0 0 20px rgba(255, 183, 178, 0.6);
+}
+
+@keyframes bounceAttention {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-10px) scale(1.05); }
+}
+
+.audio-instruction {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #ffb7b2;
+    font-style: italic;
+    opacity: 0.8;
+    background: rgba(255, 183, 178, 0.1);
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: inline-block;
+    border: 1px dashed #ffb7b2;
+    transition: opacity 1s ease;
+}
+
+/* Responsif Halaman Tambahan (Mobile View / HP Kecil) */
+@media (max-width: 480px) {
+    .slide-section {
+        padding: 1rem; /* Margin layar dikurangi biar lebih luas di HP */
+    }
+
+    .fish-it-container {
+        gap: 15px; /* Jarak foto & bubble disesuaikan agar tidak offset di HP */
+    }
+    
+    .fish-it-bubble {
+        padding: 20px; /* Teks tidak bertabrakan dengan tepian layar */
+        width: 95%;
+    }
+    
+    .fish-it-img {
+        max-width: 85%;
+    }
+    
+    .music-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+    
+    .audio-instruction {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+        margin-top: 25px;
+    }
+
+    .img-container {
+        width: 220px;
+        height: 300px;
+    }
+    
+    .swiper-slide {
+        width: 220px;
+    }
+}

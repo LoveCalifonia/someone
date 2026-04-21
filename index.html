@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halo...</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- AOS Library for Scroll Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Swiper Library for Image Slider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Music -->
+    <audio id="bgm" src="audio/Download.mp3" loop></audio>
+
+    <!-- Tombol Play/Pause Music Tema Ocean/Romantic -->
+    <button id="musicToggle" class="music-btn play-require" aria-label="Toggle Music">
+        <span class="music-icon">🎵</span>
+        <span class="music-text">PLAY</span>
+    </button>
+
+
+    <div class="sections-container">
+        
+        <!-- SECTION 1: OPENING -->
+        <section class="slide-section" id="section1">
+            <!-- Container untuk animasi bintang -->
+            <div class="star-bg"></div>
+            
+            <div class="content" data-aos="fade-in" data-aos-duration="2000">
+                <p id="typing-text"></p>
+                
+                <!-- Perintah khusus di slide 1 supaya user play lagu -->
+                <div class="audio-instruction" id="audioInstruction">
+                    <p>✨ <em>tolong putar lagunya dulu di pojok kanan bawah sebelum scroll ke bawah ya!</em> 🎧</p>
+                </div>
+            </div>
+            
+            <!-- Indikator Scroll biar tau kalau ada konten ke bawah -->
+            <div class="scroll-indicator">
+                <span>scroll pelan-pelan</span>
+                <div class="arrow"></div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: KENANGAN -->
+        <section class="slide-section" id="section2">
+            <!-- Kita pakai AOS (fade-up) biar munculnya halus -->
+            <div class="content" data-aos="fade-up" data-aos-duration="1500">
+                
+                <!-- Swiper Slider -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Foto 1 -->
+                        <div class="swiper-slide">
+                            <div class="img-container">
+                                <img src="gambar/satu.png" alt="Momen 1">
+                            </div>
+                            <p class="caption">"ini waktu aku bingung mau kasih kamu apalagi"</p>
+                        </div>
+                        
+                        <!-- Foto 2 -->
+                        <div class="swiper-slide">
+                            <div class="img-container">
+                                <img src="gambar/dua.png" alt="Momen 2">
+                            </div>
+                            <p class="caption">"ini kayanya waktu kamu ngambek deh wkwkwk"</p>
+                        </div>
+                        
+                        <!-- Foto 3 -->
+                        <div class="swiper-slide">
+                            <div class="img-container">
+                                <img src="gambar/tiga.png" alt="Momen 3">
+                            </div>
+                            <p class="caption">"ini kita poto potoo ini aku pilih karna lucu siii"</p>
+                        </div>
+
+                        <!-- Foto 4 -->
+                        <div class="swiper-slide">
+                            <div class="img-container">
+                                <img src="gambar/empat.png" alt="Momen 4">
+                            </div>
+                            <p class="caption">"ini kamu seneng karna aku kasi lumba2 pink, ya walaupun bukan nangkep sendiri"</p>
+                        </div>
+
+                        <!-- Foto 5 -->
+                        <div class="swiper-slide">
+                            <div class="img-container">
+                                <img src="gambar/lima.png" alt="Momen 5">
+                            </div>
+                            <p class="caption">"ini last day kita mancing bareng karna kamu bilang mau hapus roblox,semenjak itu aku jadi males mancing"</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination dots di bawah fotos -->
+                    <div class="swiper-pagination"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 3: PESAN -->
+        <section class="slide-section" id="section3">
+            <!-- Dekorasi Lucu -->
+            <div class="cute-decorations">
+                <span class="floating-item" style="animation-duration: 4s; left: 10%;">🐟</span>
+                <span class="floating-item" style="animation-duration: 6s; left: 80%;">🫧</span>
+                <span class="floating-item" style="animation-duration: 5s; left: 20%;">🐠</span>
+                <span class="floating-item" style="animation-duration: 7s; left: 70%;">🌊</span>
+                <span class="floating-item" style="animation-duration: 4.5s; left: 50%;">✨</span>
+            </div>
+
+            <!-- Muncul pelan-pelan dengan sedikit delay (data-aos-delay) -->
+            <div class="content" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
+                <div class="fish-it-container">
+                    <img src="gambar/gweh,dan.png" alt="Foto Spesial" class="fish-it-img">
+                    
+                    <div class="fish-it-bubble">
+                        <p class="message-text">
+                            semangat ya kerjanya bella kalo cape cerita aja ke temen temen kamu jangan di pendem nanti malah cape sendiri ,saran aku kamu jangan cinta cintaan dulu nanti pasti ada kok waktunyaaa semangat bella
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
